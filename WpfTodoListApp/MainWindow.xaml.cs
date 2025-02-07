@@ -17,22 +17,12 @@ namespace WpfTodoListApp
       DataContext = this;
     }
 
-    private void AddTaskClick(object sender, RoutedEventArgs e)
-    {
-      var taskInput = TodoTaskInput.Text;
-
-      if (string.IsNullOrEmpty(taskInput))
-      {
-        MessageBox.Show("Task cannot be empty");
-        return;
-      }
-
-      TodoTasks.Add(taskInput);
-    }
-
     private void OpenTaskCreationWindow(object sender, RoutedEventArgs e)
     {
-      TaskCreationWindow taskWindow = new TaskCreationWindow();
+      TaskCreationWindow taskWindow = new TaskCreationWindow
+      {
+        Owner = this
+      };
 
       if (taskWindow.ShowDialog() == true)
       {

@@ -3,6 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="WindowBackgroundStyle" TargetType="Window">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#6eaa5e" Offset="0.0"/>
+                        <GradientStop Color="#132c0d" Offset="0.7"/>
+                        <GradientStop Color="#0f1a08" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TextBlockItem" TargetType="TextBlock">
+            <Setter Property="Background" Value="#6eaa5e"/>
+            <Setter Property="Foreground" Value="GhostWhite"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="TextBlockHeader" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="GhostWhite"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="RegularTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="#6eaa5e"/>
+            <Setter Property="Foreground" Value="GhostWhite"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+        <Style x:Key="RegularButton" TargetType="Button">
+            <Setter Property="Background" Value="#6eaa5e"/>
+            <Setter Property="Foreground" Value="GhostWhite"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
     </Application.Resources>
 </Application>

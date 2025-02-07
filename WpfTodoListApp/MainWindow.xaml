@@ -6,25 +6,9 @@
         mc:Ignorable="d"
         Title="MainWindow"
         Height="450"
-        Width="500">
-
-    <Window.Background>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#6eaa5e" Offset="0.0"/>
-            <GradientStop Color="#b7d5ad" Offset="0.7"/>
-            <GradientStop Color="#dbead5" Offset="1.0"/>
-        </LinearGradientBrush>
-    </Window.Background>
-
-    <Window.Resources>
-        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
-            <Setter Property="Background" Value="#6eaa5e"/>
-            <Setter Property="Foreground" Value="GhostWhite"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Padding" Value="5"/>
-        </Style>
-    </Window.Resources>
+        Width="500"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource WindowBackgroundStyle}">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
 
@@ -34,25 +18,14 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Row="0">
-
-                <TextBlock Text="Enter task info:"
-                           Margin="50, 10"
-                           HorizontalAlignment="Center"/>
-
-                <TextBox Name="TodoTaskInput" Width="100" />
-
-                <Button Content="Add"
-                    Click="AddTaskClick"
-                    Margin="50, 10"
-                    Width="100"/>
-
-                <Button Content="Add Task"
-                        Click="OpenTaskCreationWindow"
-                        Margin="50,10"
-                        Width="100"/>
-
-            </StackPanel>
+            <Button Content="Add Task"
+                    Click="OpenTaskCreationWindow"
+                    Margin="50,10"
+                    Width="100"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource RegularButton}"
+                    Grid.Row="0"/>
 
             <StackPanel Name="ItemsStackPanel" Grid.Row="1">
                 <ItemsControl  Name="TodoItemsControl" ItemsSource="{Binding TodoTasks}">
@@ -63,7 +36,7 @@
                                        VerticalAlignment="Stretch"
                                        HorizontalAlignment="Stretch"
                                        TextWrapping="Wrap"
-                                       Style="{StaticResource TextBlockStyle}"/>
+                                       Style="{StaticResource TextBlockItem}"/>
                             </Border>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
