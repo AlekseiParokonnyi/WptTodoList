@@ -14,13 +14,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="TextBlockItem" TargetType="TextBlock">
-            <Setter Property="Background" Value="#6eaa5e"/>
-            <Setter Property="Foreground" Value="GhostWhite"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Padding" Value="5"/>
-        </Style>
         <Style x:Key="TextBlockHeader" TargetType="TextBlock">
             <Setter Property="Foreground" Value="GhostWhite"/>
             <Setter Property="FontSize" Value="14"/>
@@ -42,6 +35,26 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+        <Style x:Key="TodoTaskItemName" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="GhostWhite"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5,5,0,0"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+        <Style x:Key="TodoTaskItemDate" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Padding" Value="0,5,5,0"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+        <Style x:Key="TodoTaskItemDescription" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Foreground" Value="GhostWhite"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Padding" Value="5,0,0,5"/>
         </Style>
     </Application.Resources>
 </Application>

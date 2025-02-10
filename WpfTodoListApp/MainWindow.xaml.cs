@@ -8,7 +8,7 @@ namespace WpfTodoListApp
   /// </summary>
   public partial class MainWindow : Window
   {
-    public ObservableCollection<string> TodoTasks { get; set; } = new();
+    public ObservableCollection<TodoTask> TodoTasks { get; set; } = new();
 
     public MainWindow()
     {
@@ -19,14 +19,14 @@ namespace WpfTodoListApp
 
     private void OpenTaskCreationWindow(object sender, RoutedEventArgs e)
     {
-      TaskCreationWindow taskWindow = new TaskCreationWindow
+      TaskCreationWindow addTaskWindow = new TaskCreationWindow
       {
         Owner = this
       };
 
-      if (taskWindow.ShowDialog() == true)
+      if (addTaskWindow.ShowDialog() == true)
       {
-        TodoTasks.Add(taskWindow.TaskResult);
+        TodoTasks.Add(addTaskWindow.TaskResult);
       }
     }
   }

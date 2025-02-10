@@ -7,7 +7,7 @@ namespace WpfTodoListApp;
 /// </summary>
 public partial class TaskCreationWindow : Window
 {
-  public string TaskResult { get; private set; } = string.Empty;
+  public TodoTask TaskResult { get; private set; }
 
   public TaskCreationWindow()
   {
@@ -16,13 +16,19 @@ public partial class TaskCreationWindow : Window
 
   private void AddTaskClick(object sender, RoutedEventArgs e)
   {
-    if (string.IsNullOrWhiteSpace(TaskInput.Text))
+    if (string.IsNullOrWhiteSpace(TaskNameInput.Text))
     {
       MessageBox.Show("Task cannot be empty");
       return;
     }
 
-    TaskResult = TaskInput.Text;
+    TaskResult = new TodoTask
+    {
+      Name = TaskNameInput.Text,
+      Description = TaskDescriptionInput.Text,
+      Created = DateTime.UtcNow
+    };
+
     DialogResult = true;
   }
 }

@@ -32,11 +32,33 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border BorderBrush="GhostWhite" BorderThickness="3" Margin="5" CornerRadius="5">
-                                <TextBlock Text="{Binding}"
-                                       VerticalAlignment="Stretch"
-                                       HorizontalAlignment="Stretch"
-                                       TextWrapping="Wrap"
-                                       Style="{StaticResource TextBlockItem}"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="{Binding Name}"
+                                               Style="{StaticResource TodoTaskItemName}"
+                                               Grid.Row="0"
+                                               Grid.Column="0"/>
+
+                                    <TextBlock Text="{Binding Created, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}"
+                                               Style="{StaticResource TodoTaskItemDate}" 
+                                               Grid.Row="0"
+                                               Grid.Column="1"/>
+
+                                    <TextBlock Text="{Binding Description}"
+                                               Style="{StaticResource TodoTaskItemDescription}" 
+                                               Grid.Row="1"
+                                               Grid.Column="0"
+                                               Grid.ColumnSpan="2"/>
+                                </Grid>
                             </Border>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
