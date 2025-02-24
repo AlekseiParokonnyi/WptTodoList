@@ -12,9 +12,11 @@
 
         <TextBlock Text="Enter task info" Width="200" Style="{StaticResource TextBlockHeader}"/>
 
-        <TextBox Name="TaskNameInput" Width="200" Style="{StaticResource RegularTextBox}"/>
+        <TextBox Text="{Binding TaskName, UpdateSourceTrigger=PropertyChanged}"
+                 Width="200"
+                 Style="{StaticResource RegularTextBox}"/>
 
-        <TextBox Name="TaskDescriptionInput"
+        <TextBox Text="{Binding TaskDescription, UpdateSourceTrigger=PropertyChanged}"
                  Width="200"
                  Height="100" 
                  TextWrapping="Wrap" 
@@ -29,7 +31,7 @@
             </TextBox.Resources>
         </TextBox>
 
-        <Button Content="Add Task" Click="AddTaskClick" Width="200" Style="{StaticResource RegularButton}"/>
+        <Button Content="Add Task" Command="{Binding AddTaskCommand}"  Width="200" Style="{StaticResource RegularButton}"/>
 
     </StackPanel>
 

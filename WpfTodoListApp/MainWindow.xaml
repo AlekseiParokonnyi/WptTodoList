@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:WpfTodoListApp.Models"
+        xmlns:viewModels="clr-namespace:WpfTodoListApp.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="450"
@@ -19,7 +21,7 @@
             </Grid.RowDefinitions>
 
             <Button Content="Add Task"
-                    Click="OpenTaskCreationWindow"
+                    Command="{Binding OpenTaskCreationCommand}" 
                     Margin="50,10"
                     Width="100"
                     HorizontalAlignment="Center"
@@ -44,16 +46,19 @@
                                     </Grid.ColumnDefinitions>
 
                                     <TextBlock Text="{Binding Name}"
+                                               d:DataContext="{d:DesignInstance Type=models:TodoTask, IsDesignTimeCreatable=True}"
                                                Style="{StaticResource TodoTaskItemName}"
                                                Grid.Row="0"
                                                Grid.Column="0"/>
 
                                     <TextBlock Text="{Binding Created, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}"
+                                               d:DataContext="{d:DesignInstance Type=models:TodoTask, IsDesignTimeCreatable=True}"
                                                Style="{StaticResource TodoTaskItemDate}" 
                                                Grid.Row="0"
                                                Grid.Column="1"/>
 
                                     <TextBlock Text="{Binding Description}"
+                                               d:DataContext="{d:DesignInstance Type=models:TodoTask, IsDesignTimeCreatable=True}"
                                                Style="{StaticResource TodoTaskItemDescription}" 
                                                Grid.Row="1"
                                                Grid.Column="0"
@@ -67,7 +72,9 @@
                                             VerticalAlignment="Bottom"
                                             HorizontalAlignment="Right"
                                             ToolTip="Delete"
-                                            Click="DeleteTodoTask">
+                                            Command="{Binding DataContext.DeleteTodoTaskCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
+                                            CommandParameter="{Binding }"
+                                            d:DataContext="{d:DesignInstance Type=viewModels:TodoListViewModel}">
                                         <Image Source="Assets/bin.png" 
                                            Width="16" Height="16"/>
                                     </Button>

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using WpfTodoListApp.ViewModels;
 
 namespace WpfTodoListApp;
 
@@ -7,28 +8,13 @@ namespace WpfTodoListApp;
 /// </summary>
 public partial class TaskCreationWindow : Window
 {
-  public TodoTask TaskResult { get; private set; }
+  private readonly TaskCreationViewModel _viewModel;
 
   public TaskCreationWindow()
   {
     InitializeComponent();
-  }
-
-  private void AddTaskClick(object sender, RoutedEventArgs e)
-  {
-    if (string.IsNullOrWhiteSpace(TaskNameInput.Text))
-    {
-      MessageBox.Show("Task cannot be empty");
-      return;
-    }
-
-    TaskResult = new TodoTask
-    {
-      Name = TaskNameInput.Text,
-      Description = TaskDescriptionInput.Text,
-      Created = DateTime.UtcNow
-    };
-
-    DialogResult = true;
+    _viewModel = new TaskCreationViewModel();
+    _viewModel.OnTaskAdded += (_, _) => Close();
+    DataContext = _viewModel;
   }
 }

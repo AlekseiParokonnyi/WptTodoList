@@ -1,4 +1,4 @@
-﻿namespace WpfTodoListApp;
+﻿namespace WpfTodoListApp.Models;
 
 public record TodoTask
 {
