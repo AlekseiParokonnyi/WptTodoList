@@ -9,6 +9,8 @@
         Title="MainWindow"
         Height="450"
         Width="500"
+        MinHeight="450"
+        MinWidth="500"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource WindowBackgroundStyle}">
@@ -30,7 +32,7 @@
                     Style="{StaticResource RegularButton}"
                     Grid.Row="0"/>
 
-            <StackPanel Name="ItemsStackPanel" Grid.Row="1">
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
                 <ItemsControl  Name="TodoItemsControl" ItemsSource="{Binding TodoTasks}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -84,7 +86,7 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-            </StackPanel>
+            </ScrollViewer>
         </Grid>
     </ScrollViewer>
 </Window>
