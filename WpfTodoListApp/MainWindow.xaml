@@ -9,6 +9,7 @@
         Title="MainWindow"
         Height="450"
         Width="500"
+        ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource WindowBackgroundStyle}">
 

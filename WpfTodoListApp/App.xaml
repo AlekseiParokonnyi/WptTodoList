@@ -35,6 +35,14 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Margin" Value="0,0,0,10"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#dbead5"/>
+                    <Setter Property="Foreground" Value="#445340"/>
+                    <Setter Property="Opacity" Value="0.6"/>
+                    <Setter Property="Cursor" Value="Arrow"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
         <Style x:Key="TodoTaskItemName" TargetType="TextBlock">
             <Setter Property="FontWeight" Value="Bold"/>

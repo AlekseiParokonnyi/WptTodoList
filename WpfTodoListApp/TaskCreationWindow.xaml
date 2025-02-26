@@ -2,25 +2,40 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Add Task"
-        Height="300"
-        Width="300"
         MinWidth="300"
+        MinHeight="300"
+        ResizeMode="CanResize"
+        SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterOwner"
         Style="{StaticResource WindowBackgroundStyle}">
 
-    <StackPanel Margin="20">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-        <TextBlock Text="Enter task info" Width="200" Style="{StaticResource TextBlockHeader}"/>
+        <TextBlock Text="Enter task info"
+                   Grid.Row="0"
+                   MinWidth="200"
+                   HorizontalAlignment="Stretch"
+                   Style="{StaticResource TextBlockHeader}"/>
 
         <TextBox Text="{Binding TaskName, UpdateSourceTrigger=PropertyChanged}"
-                 Width="200"
+                 Grid.Row="1"
+                 MinWidth="200"
+                 HorizontalAlignment="Stretch"
                  Style="{StaticResource RegularTextBox}"/>
 
         <TextBox Text="{Binding TaskDescription, UpdateSourceTrigger=PropertyChanged}"
-                 Width="200"
-                 Height="100" 
+                 MinWidth="200"
+                 MinHeight="100" 
+                 Grid.Row="2"
                  TextWrapping="Wrap" 
-                 AcceptsReturn="True" 
+                 AcceptsReturn="True"
+                 HorizontalAlignment="Stretch"
                  VerticalScrollBarVisibility="Auto"
                  Style="{StaticResource RegularTextBox}">
             <TextBox.Resources>
@@ -31,8 +46,13 @@
             </TextBox.Resources>
         </TextBox>
 
-        <Button Content="Add Task" Command="{Binding AddTaskCommand}"  Width="200" Style="{StaticResource RegularButton}"/>
+        <Button Content="Add Task"
+                Command="{Binding AddTaskCommand}"
+                Grid.Row="3"
+                MinWidth="200"
+                HorizontalAlignment="Stretch"
+                Style="{StaticResource RegularButton}" />
 
-    </StackPanel>
+    </Grid>
 
 </Window>
