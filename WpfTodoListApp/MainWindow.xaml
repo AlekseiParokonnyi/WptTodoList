@@ -62,24 +62,18 @@
 
                                     <TextBlock Text="{Binding Description}"
                                                d:DataContext="{d:DesignInstance Type=models:TodoTask, IsDesignTimeCreatable=True}"
-                                               Style="{StaticResource TodoTaskItemDescription}" 
+                                               Style="{StaticResource TodoTaskItemDescription}"
                                                Grid.Row="1"
                                                Grid.Column="0"
                                                Grid.ColumnSpan="2"/>
 
-                                    <Button Width="24" Height="24"
-                                            Background="Transparent"
-                                            BorderThickness="0"
-                                            Padding="0"
+                                    <Button Style="{StaticResource IconButton}"
                                             Grid.Row="1" Grid.Column="1"
-                                            VerticalAlignment="Bottom"
-                                            HorizontalAlignment="Right"
                                             ToolTip="Delete"
                                             Command="{Binding DataContext.DeleteTodoTaskCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
                                             CommandParameter="{Binding }"
                                             d:DataContext="{d:DesignInstance Type=viewModels:TodoListViewModel}">
-                                        <Image Source="Assets/bin.png" 
-                                           Width="16" Height="16"/>
+                                        <Image Source="Assets/bin.png" Width="16" Height="16"/>
                                     </Button>
                                 </Grid>
                             </Border>
